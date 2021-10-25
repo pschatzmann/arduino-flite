@@ -290,37 +290,37 @@ $(function() {
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;};</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="class_flite_output_stream.html">  247</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_flite_output_stream.html">FliteOutputStream</a> : <span class="keyword">public</span>  <a class="code" href="class_flite_output_base.html">FliteOutputBase</a> {</div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="class_flite_output.html">  247</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_flite_output.html">FliteOutput</a> : <span class="keyword">public</span>  <a class="code" href="class_flite_output_base.html">FliteOutputBase</a> {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <a class="code" href="class_flite_output_stream.html">FliteOutputStream</a>(Stream &amp;out){</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <a class="code" href="class_flite_output.html">FliteOutput</a>(Print &amp;out){</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            this-&gt;out_ptr = &amp;out;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        }</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> drain(){</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <span class="keywordflow">while</span>(out_ptr-&gt;available()&gt;0){</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                out_ptr-&gt;read();</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <span class="comment">// while(out_ptr-&gt;available()&gt;0){</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="comment">//     out_ptr-&gt;read();</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="comment">// }</span></div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        }</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> flush(){</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            out_ptr-&gt;flush();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="comment">//out_ptr-&gt;flush();</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        };</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> write(<span class="keywordtype">void</span> *buffer, <span class="keywordtype">int</span> sample_count) {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            LOG(<span class="stringliteral">&quot;FliteOutputStream::write: %d&quot;</span>,  sample_count);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            LOG(<span class="stringliteral">&quot;FliteOutput::write: %d&quot;</span>,  sample_count);</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            out_ptr-&gt;write((<span class="keyword">const</span> uint8_t *) buffer, sample_count*<span class="keyword">sizeof</span>(int16_t));</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        }</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        Stream *out_ptr;       </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        Print *out_ptr;       </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;};</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="class_flite_print_stream.html">  279</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_flite_print_stream.html">FlitePrintStream</a> : <span class="keyword">public</span>  <a class="code" href="class_flite_output_stream.html">FliteOutputStream</a> {</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="class_flite_print_stream.html">  279</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_flite_print_stream.html">FlitePrintStream</a> : <span class="keyword">public</span>  <a class="code" href="class_flite_output.html">FliteOutput</a> {</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <a class="code" href="class_flite_print_stream.html">FlitePrintStream</a>( Stream &amp;out) : <a class="code" href="class_flite_output_stream.html">FliteOutputStream</a>(out) {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <a class="code" href="class_flite_print_stream.html">FlitePrintStream</a>( Print &amp;out) : <a class="code" href="class_flite_output.html">FliteOutput</a>(out) {</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        }</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> write(<span class="keywordtype">void</span> *buffer,<span class="keywordtype">int</span> sample_count) {</div>
@@ -337,9 +337,9 @@ $(function() {
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
 <div class="ttc" id="aclass_flite_output_base_html"><div class="ttname"><a href="class_flite_output_base.html">FliteOutputBase</a></div><div class="ttdoc">Base Output Class with common functionality.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:31</div></div>
 <div class="ttc" id="aclass_flite_output_callback_html"><div class="ttname"><a href="class_flite_output_callback.html">FliteOutputCallback</a></div><div class="ttdoc">Output via Callback method.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:104</div></div>
+<div class="ttc" id="aclass_flite_output_html"><div class="ttname"><a href="class_flite_output.html">FliteOutput</a></div><div class="ttdoc">Output using Arduino Print class.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:247</div></div>
 <div class="ttc" id="aclass_flite_output_i2_s_html"><div class="ttname"><a href="class_flite_output_i2_s.html">FliteOutputI2S</a></div><div class="ttdoc">Output to I2S for ESP32.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:126</div></div>
-<div class="ttc" id="aclass_flite_output_stream_html"><div class="ttname"><a href="class_flite_output_stream.html">FliteOutputStream</a></div><div class="ttdoc">Output to Arduino Stream.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:247</div></div>
-<div class="ttc" id="aclass_flite_print_stream_html"><div class="ttname"><a href="class_flite_print_stream.html">FlitePrintStream</a></div><div class="ttdoc">Write readable string to Arduino Stream.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:279</div></div>
+<div class="ttc" id="aclass_flite_print_stream_html"><div class="ttname"><a href="class_flite_print_stream.html">FlitePrintStream</a></div><div class="ttdoc">Write readable string to Arduino Print class.</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.h:279</div></div>
 <div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div><div class="ttdoc">Configuration settings for Arduino.</div></div>
 <div class="ttc" id="aflite__out__arduino_8h_html_a9e85c1f315b3b5d247838675e20c40aa"><div class="ttname"><a href="flite__out__arduino_8h.html#a9e85c1f315b3b5d247838675e20c40aa">arduino_audio_stream_chunk</a></div><div class="ttdeci">int arduino_audio_stream_chunk(const cst_wave *w, int start, int size, int last, cst_audio_streaming_info_struct *user)</div><div class="ttdoc">flite streaming callback method</div><div class="ttdef"><b>Definition:</b> flite_out_arduino.cpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->

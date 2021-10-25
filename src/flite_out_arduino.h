@@ -241,44 +241,44 @@ class FliteOutputI2S : public  FliteOutputBase {
 #endif
 
 /**
- * @brief Output to Arduino Stream
+ * @brief Output using Arduino Print class
  * 
  */
-class FliteOutputStream : public  FliteOutputBase {
+class FliteOutput : public  FliteOutputBase {
     public:
-        FliteOutputStream(Stream &out){
+        FliteOutput(Print &out){
             this->out_ptr = &out;
         }
 
         virtual int drain(){
-            while(out_ptr->available()>0){
-                out_ptr->read();
-            }
+            // while(out_ptr->available()>0){
+            //     out_ptr->read();
+            // }
             return 0;
         }
 
         virtual int flush(){
-            out_ptr->flush();
+            //out_ptr->flush();
             return 0;
         };
 
         virtual int write(void *buffer, int sample_count) {
-            LOG("FliteOutputStream::write: %d",  sample_count);
+            LOG("FliteOutput::write: %d",  sample_count);
             out_ptr->write((const uint8_t *) buffer, sample_count*sizeof(int16_t));
             return 0;
         }
 
     protected:
-        Stream *out_ptr;       
+        Print *out_ptr;       
 };
 
 /**
- * @brief Write readable string to Arduino Stream
+ * @brief Write readable string to Arduino Print class
  * 
  */
-class FlitePrintStream : public  FliteOutputStream {
+class FlitePrintStream : public  FliteOutput {
     public:
-        FlitePrintStream( Stream &out) : FliteOutputStream(out) {
+        FlitePrintStream( Print &out) : FliteOutput(out) {
         }
 
         virtual int write(void *buffer,int sample_count) {

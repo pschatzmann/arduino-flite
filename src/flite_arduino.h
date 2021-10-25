@@ -43,11 +43,11 @@ class Flite {
         }
 
         /// Constructor - for output to a stream
-        Flite(Stream &stream, bool as_text=false){
+        Flite(Print &stream, bool as_text=false){
             if (as_text){
                 setOutput(new FlitePrintStream(stream));
             } else {
-                setOutput(new FliteOutputStream(stream));
+                setOutput(new FliteOutput(stream));
             }
             flite_init();
         }
