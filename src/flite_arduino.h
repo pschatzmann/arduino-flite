@@ -47,7 +47,7 @@ class Flite {
             if (as_text){
                 setOutput(new FlitePrintStream(stream));
             } else {
-                setOutput(new FliteOutput(stream));
+                setOutput(new FliteOutputStream(stream));
             }
             flite_init();
         }

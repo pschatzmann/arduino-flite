@@ -244,9 +244,9 @@ class FliteOutputI2S : public  FliteOutputBase {
  * @brief Output using Arduino Print class
  * 
  */
-class FliteOutput : public  FliteOutputBase {
+class FliteOutputStream : public  FliteOutputBase {
     public:
-        FliteOutput(Print &out){
+        FliteOutputStream(Print &out){
             this->out_ptr = &out;
         }
 
@@ -276,9 +276,9 @@ class FliteOutput : public  FliteOutputBase {
  * @brief Write readable string to Arduino Print class
  * 
  */
-class FlitePrintStream : public  FliteOutput {
+class FlitePrintStream : public  FliteOutputStream {
     public:
-        FlitePrintStream( Print &out) : FliteOutput(out) {
+        FlitePrintStream( Print &out) : FliteOutputStream(out) {
         }
 
         virtual int write(void *buffer,int sample_count) {

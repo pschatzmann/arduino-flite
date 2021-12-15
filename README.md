@@ -21,6 +21,16 @@ git clone pschatzmann/arduino-flite.git
 Here is the generated [Class documentation](https://pschatzmann.github.io/flite/doc/html/class_flite.html) for the Arduino API. 
 Further information on Flite can be found [in the FLITE.md](FLITE.md)
 
+## Output Format
+
+The generated output format is usually as follows
+
+|  Parameter        | Value |
+|-------------------|-------|
+|  bits_per_sample  |   16  |
+|  channels         |    1  |
+|  sample_rate      | 8000  |
+
 
 ## Memory Requirements
 
