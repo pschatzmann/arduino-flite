@@ -134,6 +134,7 @@ class FliteOutputI2S : public  FliteOutputBase {
         FliteOutputI2S( i2s_port_t i2s_num, i2s_config_t cfg){
             this->i2s_num = i2s_num;
             this->i2s_config = cfg;
+            this->i2s_config.sample_rate = this->sampleRate();
             setupDefaultPins();
         }
 
