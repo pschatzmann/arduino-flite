@@ -194,7 +194,7 @@ class FliteOutputI2S : public  FliteOutputBase {
                 // copy from 1 to 2 channels
                 int total = 0;
                 int16_t *ptr = (int16_t *) buffer;
-								int16_t convertUnsigned=(i2s_config.mode & I2S_MODE_DAC_BUILT_IN)?0x8000:0;
+				int16_t convertUnsigned=(i2s_config.mode & I2S_MODE_DAC_BUILT_IN)?0x8000:0;
                 for (int j=0;j<sample_count;j++){
                     int16_t data[2] = {ptr[j] + convertUnsigned, ptr[j] + convertUnsigned};
                     if (i2s_write(i2s_num, data, sizeof(int16_t)*2, &i2s_bytes_write, portMAX_DELAY)==ESP_OK){
