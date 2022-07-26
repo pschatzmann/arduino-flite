@@ -18,7 +18,7 @@ git clone pschatzmann/arduino-flite.git
 
 ## Documentation
 
-Here is the generated [Class documentation](https://pschatzmann.github.io/flite/doc/html/class_flite.html) for the Arduino API. 
+Here is the generated [Class documentation](https://pschatzmann.github.io/arduino-flite/doc/html/hierarchy.html) for the Arduino API. 
 Further information on Flite can be found [in the FLITE.md](FLITE.md)
 
 ## Output Format
