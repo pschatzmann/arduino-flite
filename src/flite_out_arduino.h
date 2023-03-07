@@ -12,7 +12,7 @@
 #include "flite.h"
 #include "config.h"
 
-#ifdef ESP32
+#if defined(ESP32) && ESP32_I2S_ACTIVE
 #include "driver/i2s.h"
 #include "freertos/queue.h"
 #endif
@@ -118,7 +118,7 @@ class FliteOutputCallback : public  FliteOutputBase {
         flite_callback callback;
 };
 
-#ifdef ESP32
+#if defined(ESP32) && ESP32_I2S_ACTIVE
 /**
  * @brief Output to I2S for ESP32
  * 

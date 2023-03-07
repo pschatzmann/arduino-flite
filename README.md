@@ -4,7 +4,6 @@ Flite (festival-lite) is a small, fast run-time open source text to speech synth
 
 I created this project with the intention to provide Flite as Arduino Library which supports different output alternatives:
 
-- [Output to I2S (for the ESP32)](examples/text_to_speach_i2s/text_to_speach_i2s.ino)
 - [Output to a Arduino Stream](examples/text_to_speach_stream/text_to_speach_stream.ino)
 - [Output with a callback method](examples/text_to_speach_callback/text_to_speach_callback.ino)
 

@@ -12,3 +12,6 @@
 // Deactivate Sockets
 #define CST_NO_SOCKETS
 
+
+// Activate/Deactivate built in I2S 
+#define ESP32_I2S_ACTIVE false
