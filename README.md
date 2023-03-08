@@ -12,7 +12,7 @@ I created this project with the intention to provide Flite as Arduino Library wh
 You can download the library as zip and call include Library -> zip library. Or you can git clone this project into the Arduino libraries folder e.g. with
 ```
 cd  ~/Documents/Arduino/libraries
-git clone pschatzmann/arduino-flite.git
+git clone https://github.com/pschatzmann/arduino-flite.git
 ```
 
 ## Documentation
